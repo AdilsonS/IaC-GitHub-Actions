@@ -58,6 +58,9 @@ jobs:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           TF_VAR_vm_admin_password: ${{ secrets.TF_VAR_VM_ADMIN_PASSWORD }}
 
+      - name: Wait for SSH
+        run: sleep 60
+
       - name: Check if nginx is installed
         id: check-nginx-installed
         run: |
