@@ -10,8 +10,13 @@ variable "resource_group_name" {
   description = "Nome para o grupo de recursos."
 }
 
-variable "vm_username" {
+variable "vm_admin_username" {
   type        = string
-  description = "O usuario que vai ser usado pra acessar a VM."
+  description = "O usuario que vai ser utilizado pra acessar a VM."
   default     = "azureuser"
+}
+
+variable "vm_admin_password" {
+  type        = string
+  description = "Senha do usuario que vai ser utilizado pra acessar a VM."
 }

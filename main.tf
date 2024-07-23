@@ -95,7 +95,7 @@ resource "azurerm_linux_virtual_machine" "studentVm" {
     version   = "latest"
   }
   computer_name                   = "studentvm"
-  admin_username                  = var.vm_username
+  admin_username                  = var.vm_admin_username
   admin_password                  = var.vm_admin_password
   disable_password_authentication = false
 }
@@ -105,8 +105,8 @@ resource "local_file" "hosts_cfg" {
   content = templatefile("inventory.tpl",
     {
       publicIP = azurerm_linux_virtual_machine.studentVm.public_ip_address,
-      user     = var.vm_username,
-      password = var.vm_password
+      user     = var.vm_admin_username,
+      password = var.vm_admin_password
     }
   )
   filename = "./ansible/inventory.ini"

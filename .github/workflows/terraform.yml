@@ -23,15 +23,14 @@ jobs:
       - name: Run terraform init
         run: terraform init
         env:
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID}}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET}}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID}}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           TF_VAR_vm_admin_password: ${{ secrets.TF_VAR_VM_ADMIN_PASSWORD }}
 
-
       - name: Run terraform fmt
-        run: terraform fmt 
+        run: terraform fmt
 
       - name: Execute terraform linter
         uses: terraform-linters/setup-tflint@v1
@@ -44,21 +43,20 @@ jobs:
       - name: Run terraform plan
         run: terraform plan -out main.tfplan
         env:
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID}}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET}}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID}}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           TF_VAR_vm_admin_password: ${{ secrets.TF_VAR_VM_ADMIN_PASSWORD }}
 
       - name: Run terraform apply
         run: terraform apply -auto-approve
         env:
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID}}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET}}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID}}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           TF_VAR_vm_admin_password: ${{ secrets.TF_VAR_VM_ADMIN_PASSWORD }}
-
 
       - name: Check if nginx is installed
         id: check-nginx-installed
