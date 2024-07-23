@@ -96,7 +96,7 @@ resource "azurerm_linux_virtual_machine" "studentVm" {
   }
   computer_name                   = "studentvm"
   admin_username                  = var.vm_username
-  admin_password                  = var.vm_password
+  admin_password                  = var.vm_admin_password
   disable_password_authentication = false
 }
 
